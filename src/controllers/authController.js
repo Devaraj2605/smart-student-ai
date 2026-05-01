@@ -12,9 +12,9 @@ const registerUser = async (req, res) => {
       });
     }
 
-    if (role && !["user", "admin"].includes(role)) {
+    if (role && !["user", "admin", "teacher"].includes(role)) {
       return res.status(400).json({
-        message: "Role must be either 'user' or 'admin'",
+        message: "Role must be one of 'user', 'admin', or 'teacher'",
       });
     }
 

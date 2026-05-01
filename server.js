@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./src/config/db");
 const studentRoutes = require("./src/routes/studentRoutes");
 const authRoutes = require("./src/routes/authRoutes");
+const timetableRoutes = require("./src/routes/timetableRoutes");
 const errorMiddleware = require("./src/middleware/errorMiddleware");
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/students", studentRoutes);
+app.use("/api/timetable", timetableRoutes);
 
 app.use(errorMiddleware);
 
