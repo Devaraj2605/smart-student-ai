@@ -5,6 +5,7 @@ const studentRoutes = require("./src/routes/studentRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const timetableRoutes = require("./src/routes/timetableRoutes");
 const attendanceRoutes = require("./src/routes/attendanceRoutes");
+const studyMaterialRoutes = require("./src/routes/studyMaterialRoutes");
 const errorMiddleware = require("./src/middleware/errorMiddleware");
 
 dotenv.config();
@@ -16,6 +17,8 @@ connectDB();
 
 app.use(express.json());
 
+app.use("/uploads", express.static("uploads"));
+
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Student Management API is running" });
 });
@@ -24,6 +27,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/students", studentRoutes);
 app.use("/api/timetable", timetableRoutes);
 app.use("/api/attendance", attendanceRoutes);
+app.use("/api/materials", studyMaterialRoutes);
 
 app.use(errorMiddleware);
 
