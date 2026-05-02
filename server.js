@@ -6,6 +6,7 @@ const authRoutes = require("./src/routes/authRoutes");
 const timetableRoutes = require("./src/routes/timetableRoutes");
 const attendanceRoutes = require("./src/routes/attendanceRoutes");
 const studyMaterialRoutes = require("./src/routes/studyMaterialRoutes");
+const notificationRoutes = require("./src/routes/notificationRoutes");
 const errorMiddleware = require("./src/middleware/errorMiddleware");
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.use("/api/students", studentRoutes);
 app.use("/api/timetable", timetableRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/materials", studyMaterialRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 app.use(errorMiddleware);
 
