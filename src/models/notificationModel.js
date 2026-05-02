@@ -4,13 +4,11 @@ const notificationSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Title is required"],
-      trim: true,
+      required: true,
     },
     message: {
       type: String,
-      required: [true, "Message is required"],
-      trim: true,
+      required: true,
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -27,7 +25,9 @@ const notificationSchema = new mongoose.Schema(
       default: false,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Notification", notificationSchema);
