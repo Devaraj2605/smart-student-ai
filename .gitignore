@@ -1,3 +1,7 @@
 node_modules/
 .env
 uploads/
+
+# frontend
+smart-student-frontend/node_modules/
+dist/
