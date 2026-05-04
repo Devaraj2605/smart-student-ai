@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors"); // ✅ ADD THIS
 const connectDB = require("./src/config/db");
+
 const studentRoutes = require("./src/routes/studentRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const timetableRoutes = require("./src/routes/timetableRoutes");
@@ -17,6 +19,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 connectDB();
+
+// ✅ ADD THIS BLOCK
+app.use(cors());
 
 app.use(express.json());
 
